@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Temperature Converter</title>
+    <style>
+        body {
+            width: 100%;
+            margin-top: 10%;
+            margin-bottom: 20%;
+            background: radial-gradient(50% 123.47% at 50% 50%, #00ff94 0%, #720059 100%),
+                linear-gradient(121.28deg, #669600 0%, #ff0000 100%),
+                linear-gradient(360deg, #0029ff 0%, #8fff00 100%),
+                radial-gradient(100% 164.72% at 100% 100%, #6100ff 0%, #00ff57 100%),
+                radial-gradient(100% 148.07% at 0% 0%, #fff500 0%, #51d500 100%);
+            background-blend-mode: screen, color-dodge, overlay, difference, normal;
+
+        }
+
+        .card {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            width: 100%;
+            max-width: 300px;
+            margin: 0 auto;
+        }
+
+        input {
+            margin-bottom: 10px;
+        }
+
+        h1 {
+            font-size: 2em;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Temperature Converter</h1>
+    <div class="card">
+        <p>
+            <label>Fahrenheit</label>
+            <input id="inputFahrenheit" type="number" placeholder="Fahrenheit"
+                oninput="temperatureConverter(this.value)" onchange="temperatureConverter(this.value)">
+        </p>
+        <p>Celsius: <span id="outputCelsius"></span></p>
+        <p>
+            <label>Celsius</label>
+            <input id="inputCelsius" type="number" placeholder="Celsius"
+                oninput="temperatureConverterCelsius(this.value)" onchange="temperatureConverterCelsius(this.value)">
+        </p>
+        <p>Fahrenheit: <span id="outputFahrenheit"></span></p>
+    </div>
+    <script>
+        function temperatureConverter(valNum) {
+            valNum = parseFloat(valNum);
+            document.getElementById("outputCelsius").innerHTML = (valNum - 32) / 1.8;
+        }
+        function temperatureConverterCelsius(valNum) {
+            valNum = parseFloat(valNum);
+            document.getElementById("outputFahrenheit").innerHTML = valNum * 1.8 + 32;
+        }
+    </script>
+</body>
+
+</html>
